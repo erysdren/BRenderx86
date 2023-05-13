@@ -1,0 +1,17 @@
+## unversioned files
+local/
+
+## vscode
+.vscode/
+*.code-workspace
+
+## cmake
+cmake-build-*/
+
+# watcom
+*.exe
+*.err
+*.o
+*.obj
+minimal_offscreen
+minimal_sdl
