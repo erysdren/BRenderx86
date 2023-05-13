@@ -2,6 +2,8 @@
 
 A port of the BRender x86 SDK 1.1.2 from 1995 to modern systems.
 
+Next step: using a mix of objconv and other tools to assemble a 32-bit BRender application with SDL2.
+
 ## How This Works
 
 So, the main reason this port is possible is because of Open Watcom's backwards compatibility. The BRender x86 SDK 1.1.2 from 1995 was compiled with Watcom C 10, and the precompiled LIBs do not contain any DOS-specific code. All of that is contained in the DOSIO module. Using Open Watcom v2, I can link an x86 Linux application against the 1995 BRender LIBs and create a working headless BRender executable, which cleanly runs on my x86_64 machine without segfaulting. Using SDL 1.2 (which supports Watcom, but Win32 only) I can create a proper graphical BRender application which opens and properly displays BRender's output.
