@@ -15,6 +15,10 @@ I think it's kind of amazing that I can coax my modern CPU into running compiled
 - `thirdparty/brender/` - The BRender x86 1.1.2 SDK, precompiled under Watcom C 10 in 1995.
 - `thirdparty/sdl/` - SDL 1.2, precompiled under Open Watcom v2 in 2023.
 
+## Building
+
+To build the executables, enter the project directory and type `wmake`.
+
 ## License
 
 MIT License
