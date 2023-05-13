@@ -9,6 +9,7 @@
 /* std */
 #include <stddef.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /* brender */
 #include "thirdparty/brender/inc/brender.h"
@@ -22,6 +23,22 @@ br_pixelmap *screen_buffer, *back_buffer, *depth_buffer;
  * The actors in the world
  */
 br_actor *observer, *world;
+
+
+/*
+ * err
+ */
+
+int err(const char *s)
+{
+	printf("%s\n", s);
+	return EXIT_FAILURE;
+}
+
+/*
+ * main
+ */
+
 int main()
 {
 	br_actor *a;
@@ -39,6 +56,7 @@ int main()
 	 * Setup CLUT (ignored in true-colour)
 	 */
 	palette = BrPixelmapLoad("std.pal");
+	if (palette == NULL) return err("couldn't load std.pal");
 
 	/*
 	 * Allocate other buffers
@@ -83,6 +101,7 @@ int main()
 	 * Close down
 	 */
 	BrPixelmapSave("minimal_offscreen.pix", screen_buffer);
+	BrPixelmapFree(screen_buffer);
 	BrPixelmapFree(depth_buffer);
 	BrPixelmapFree(back_buffer);
 

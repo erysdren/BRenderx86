@@ -39,7 +39,6 @@ int sdl_height = 600;
 int sdl_bpp = 32;
 int sdl_running = SDL_TRUE;
 
-
 /*
  * err
  */
@@ -158,6 +157,7 @@ int main()
 	/*
 	 * Close down
 	 */
+	BrPixelmapFree(screen_buffer);
 	BrPixelmapFree(depth_buffer);
 	BrPixelmapFree(back_buffer);
 
